@@ -182,13 +182,8 @@ int main(int argc, char** argv)
     Py_SetProgramName(program);
     Py_Initialize();
     clear_screen();
-    if(argc == 1)
-    {
-        cout<<"error:python path is not provided!"<<endl;
-        exit(-1);
-    }
-  
-    auto python_path = string(argv[1]);
+
+ 
     string lines;
     string buffer;
     bool clear_line = true;
@@ -203,7 +198,7 @@ int main(int argc, char** argv)
         {
             auto arg = buffer.empty() ? line : buffer;
             arg += line;
-            PyRun_SimpleString(arg.c_str());
+            cout<<PyRun_SimpleString(arg.c_str());
             buffer.clear();
             clear_line = true;
         }
